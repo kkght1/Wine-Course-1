@@ -144,6 +144,7 @@
   .qhead:hover .qtoggle{background:var(--wine);color:#fff;border-color:var(--wine)}
   .qans{max-height:0;overflow:hidden;transition:max-height .35s ease;background:rgba(107,31,42,.04);border-top:0 solid var(--wine)}
   .qcard.open .qans{max-height:600px;border-top:1px solid rgba(107,31,42,.18)}
+  .qcard.ak.open .qans{max-height:2600px}
   .qans-inner{padding:16px 18px 18px 56px;font-size:15.5px;line-height:1.55;color:var(--ink-soft)}
   .qans-inner b{color:var(--wine);font-weight:600}
   .qans-inner .lbl{font-family:'Fraunces';font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);display:block;margin-bottom:6px}
@@ -1326,6 +1327,49 @@ function updateProgressUI(){
   });
 }
 
+/* ---- Tasting Answer Key (full SSWE sheet, Modules 1–2) ---- */
+function akBlock(title, rows){
+  if(!rows || !rows.length) return '';
+  const r = rows.map(x=>`<div class="vrow"><span class="vk">${x[0]}</span><span class="vv">${x[1]}</span></div>`).join('');
+  return `<div class="view-block" style="margin-top:10px"><div class="vb-h">${title}</div>${r}</div>`;
+}
+const ANSWERKEY = {
+m1:[
+  {w:"Cave Spring Riesling",
+   app:[["Brightness","Bright"],["Clarity","Clear"],["Colour","Straw / pale green"],["Intensity","Pale"],["Rim","Youthful"],["CO₂ / Sediment","No"],["Viscosity","Low–Med−"]],
+   nose:[["Quality","Clean"],["Intensity","Med+"],["Fruit","Citrus, Stone"],["Floral","Blossom"],["Mineral","steel / stone"],["Oak","No"],["Specific","lime, green apple, lemon, white peach, honeysuckle, wet stone"]],
+   pal:[["Sweetness","off dry"],["Alcohol","Low"],["Tannins","None"],["Acidity","High"],["Body","Light"],["Fruit","Citrus, Stone"],["Oak","No"],["Finish","Medium"],["Specific","lime & green apple; faint sweetness snapped back by racing acid; saline close"]],
+   concl:[["Country","Canada"],["Region","Niagara"],["Appellation","Niagara Peninsula VQA"],["Grape","Riesling"],["Age","1 to 3"],["Service temp","8–12°C"],["Food","goat cheese, Thai / Vietnamese"]],
+   note:"The big calls are Acidity <b>High</b>, Sweetness <b>off dry</b> (not dry), Alcohol <b>Low</b>, Body <b>Light</b>. If you wrote “dry,” that's the off-dry-but-high-acid illusion to recalibrate — the acid hides the sugar."},
+  {w:"Catena Malbec",
+   app:[["Brightness","Bright"],["Clarity","Clear"],["Colour","Ruby–Violet (purple-edged)"],["Intensity","Deep"],["Rim","Youthful"],["CO₂ / Sediment","No"],["Viscosity","Med+"]],
+   nose:[["Quality","Clean"],["Intensity","Med+"],["Fruit","Black"],["Floral","Flowers (violet)"],["Oak","Yes"],["Specific","blackberry, black plum, black cherry, violet, cocoa/mocha, sweet spice, vanilla"]],
+   pal:[["Sweetness","dry"],["Alcohol","Med+"],["Tannins","Medium (ripe, soft)"],["Acidity","Medium"],["Body","Full"],["Fruit","Black"],["Oak","Yes"],["Finish","Medium"],["Specific","black fruit + mocha; soft, dusty tannin grip on the gums"]],
+   concl:[["Country","Argentina"],["Region","Mendoza"],["Grape","Malbec"],["Age","1 to 3 (to 3–5)"],["Service temp","16–18°C"],["Food","grilled steak, empanadas"]],
+   note:"Feel the <b>Tannin</b> as a soft, dusty grip — Medium, not Hard, not None — and Body <b>Full</b> against the Riesling's Light. Acid vs. tannin is the entire Module 1 lesson."}
+],
+m2:[
+  {w:"Chablis (La Chablisienne / William Fèvre)",
+   app:[["Brightness","Bright"],["Clarity","Clear"],["Colour","Straw / green tints"],["Intensity","Pale–Med−"],["Rim","Youthful"],["CO₂ / Sediment","No"],["Viscosity","Med−"]],
+   nose:[["Quality","Clean"],["Intensity","Medium"],["Fruit","Citrus, Green"],["Floral","Blossom"],["Mineral","chalk / stone"],["Oak","No"],["Specific","lemon, green apple, grapefruit, oyster shell, chalk"]],
+   pal:[["Sweetness","dry"],["Alcohol","Medium"],["Tannins","None"],["Acidity","High"],["Body","Med−"],["Fruit","Citrus, Green"],["Oak","No"],["Mineral","chalk"],["Finish","Med+"],["Specific","taut, lean, saline; a chalky mineral cut"]],
+   concl:[["Country","France"],["Region","Burgundy (Chablis)"],["Appellation","Chablis AOC"],["Grape","Chardonnay"],["Age","1 to 3"],["Service temp","8–12°C"],["Food","oysters, white fish"]],
+   note:"Oak should be <b>No</b> and Acidity <b>High</b>. If you found vanilla, cream, or toast, re-check — that's a winemaking signature Chablis doesn't carry, and the key contrast against the next two."},
+  {w:"Mâcon-Villages (Bichot / Jadot)",
+   app:[["Brightness","Bright"],["Clarity","Clear"],["Colour","Straw"],["Intensity","Med−"],["Rim","Youthful"],["Viscosity","Medium"]],
+   nose:[["Quality","Clean"],["Intensity","Medium"],["Fruit","Citrus, Stone"],["Floral","Blossom"],["Oak","Yes (light)"],["Specific","apple, pear, white peach, light hazelnut / toast, gentle cream"]],
+   pal:[["Sweetness","dry"],["Alcohol","Medium"],["Tannins","None"],["Acidity","Med+"],["Body","Medium"],["Fruit","Citrus, Stone"],["Oak","Yes (subtle)"],["Finish","Medium"],["Specific","rounder apple / pear; a little creaminess"]],
+   concl:[["Country","France"],["Region","Burgundy (Mâconnais)"],["Appellation","Mâcon-Villages AOC"],["Grape","Chardonnay"],["Age","1 to 3"],["Service temp","8–12°C"],["Food","roast chicken, soft cheese"]],
+   note:"The “in-between”: riper and rounder than the Chablis, Acidity a notch lower (<b>Med+</b> vs High), with a whisper of oak — but nowhere near the New World's vanilla and weight."},
+  {w:"Cave Spring Niagara Chardonnay",
+   app:[["Brightness","Bright"],["Clarity","Clear"],["Colour","Straw–Gold"],["Intensity","Med−/Medium"],["Rim","Youthful"],["Viscosity","Medium/Med+"]],
+   nose:[["Quality","Clean"],["Intensity","Med+"],["Fruit","Stone, Citrus"],["Oak","Yes"],["Specific","ripe apple, pear, yellow plum, melon, vanilla, spice"]],
+   pal:[["Sweetness","dry"],["Alcohol","Med+"],["Tannins","None"],["Acidity","Med+"],["Body","Medium–Med+"],["Fruit","Stone, Citrus"],["Oak","Yes"],["Finish","Med+"],["Specific","ripe orchard fruit + vanilla/spice oak, held by a cool-climate acid line"]],
+   concl:[["Country","Canada"],["Region","Niagara"],["Appellation","Niagara Peninsula VQA"],["Grape","Chardonnay"],["Age","1 to 3"],["Service temp","8–12°C (10–12 ideal)"],["Food","roast chicken, mushroom, baked salmon"]],
+   note:"Find the <b>Oak</b> (vanilla/spice) and the fuller Body vs. Chablis — yet Acidity stays <b>Med+</b> because Niagara is cool-climate. That “ripe fruit + oak but still fresh” combo is the New-World-cool tell. You read it as clean and mineral — see whether a little oak also shows on the palate."}
+]
+};
+
 function renderModule(c){
   const idx = COURSE.findIndex(x=>x.id===c.id);
   const prev = COURSE[idx-1], next = COURSE[idx+1];
@@ -1363,6 +1407,13 @@ function renderModule(c){
     </div>`).join('');
   const isDone = !!progress[c.id];
 
+  const akList = ANSWERKEY[c.id] || [];
+  const answerkey = akList.map((k,i)=>`
+    <div class="qcard ak" data-q="ak${i}">
+      <div class="qhead"><span class="qnum">◍</span><span class="qtext">${k.w}</span><span class="qtoggle">reveal</span></div>
+      <div class="qans"><div class="qans-inner"><span class="lbl">Completed sheet — what a textbook example should show</span>${akBlock('Appearance',k.app)}${akBlock('Nose',k.nose)}${akBlock('Palate',k.pal)}${akBlock('Conclusions',k.concl)}${k.note?`<p style="margin:12px 0 0"><b>Where to check yourself:</b> ${k.note}</p>`:''}</div></div>
+    </div>`).join('');
+
   page.innerHTML = `
     <div class="module-no">Module ${c.navnum}</div>
     <h2 class="title">${c.title}</h2>
@@ -1388,10 +1439,13 @@ function renderModule(c){
     <div class="sessions">${sessions}</div>
     <button class="tasting-cta" onclick="openTastingForm(null,'${c.id}')">✎&nbsp; Log a tasting note for this module</button>
 
-    ${calibList.length ? `<div class="sec-h">Calibration Check</div>
+    ${akList.length ? `<div class="sec-h">Tasting Answer Key</div>
+    <p style="font-style:italic;color:var(--ink-soft);margin-top:6px;max-width:68ch">Fill your own sheet first, then reveal each wine to compare field by field. The <em>structure</em> (sweetness, acid, tannin, body, alcohol, finish) is fairly objective — that's where calibration matters most. The aromas and flavours are guidance, not a checklist: your palate is allowed to differ.</p>
+    <div class="quiz">${answerkey}</div>
+` : (calibList.length ? `<div class="sec-h">Calibration Check</div>
     <p style="font-style:italic;color:var(--ink-soft);margin-top:6px;max-width:68ch">Write your own note first, then reveal each wine's reference profile and compare. The <em>structure</em> — sweetness, acid, tannin, body, alcohol — is fairly objective, so that's where to check your calibration. The flavours are guidance, not a checklist: your palate is allowed to differ.</p>
     <div class="quiz">${calib}</div>
-` : ``}
+` : ``)}
     <div class="sec-h">Self-Quiz</div>
     <p style="font-style:italic;color:var(--ink-soft);margin-top:6px">Answer each in your head or your notebook first — then reveal the model answer to check yourself.</p>
     <div class="quiz">${quiz}</div>
