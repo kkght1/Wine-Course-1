@@ -57,6 +57,50 @@ header.site .sub{color:var(--muted);font-size:.85rem;margin-top:8px}
 .marker .mpoints{font-size:.8rem;color:var(--gold);font-weight:600;margin:2px 0 4px}
 .marker .mnote{font-size:.83rem;color:#4d443e}
 .mgroup{font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;margin:22px 0 10px}
+.appendix-divider{display:flex;align-items:center;gap:12px;margin:26px 2px 14px;color:var(--muted);font-family:'Libre Franklin',sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.appendix-divider::before,.appendix-divider::after{content:"";flex:1;height:1px;background:var(--line)}
+.modcard.appendix{border-style:dashed;background:linear-gradient(0deg,var(--soft),var(--card))}
+.ep-head{margin-bottom:14px}
+.ep-eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px}
+.ep-title{font-family:'Fraunces',serif;font-size:1.35rem;color:var(--garnet);margin:0 0 6px}
+.ep-sub{font-size:.86rem;color:var(--muted);line-height:1.5;margin:0}
+.ep-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:6px 0 10px;position:sticky;top:0;background:var(--paper);padding:8px 0;z-index:5}
+.ep-status{font-size:.8rem;color:var(--muted)}
+.ep-note{font-size:.8rem;color:#5a4f47;background:var(--soft);border-radius:8px;padding:9px 12px;margin-bottom:12px;line-height:1.45}
+.ep-script{display:flex;flex-direction:column;gap:11px}
+.ep-line{padding:11px 13px;border-radius:12px;border:1px solid var(--line);background:var(--card);transition:background .2s,box-shadow .2s}
+.ep-line.mx{border-left:3px solid var(--garnet)}
+.ep-line.th{border-left:3px solid var(--gold);background:var(--paper)}
+.ep-line.on{box-shadow:0 0 0 2px var(--garnet);background:#FBF2EE}
+.ep-who{display:block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:3px}
+.ep-line.mx .ep-who{color:var(--garnet)}
+.ep-line.th .ep-who{color:var(--gold)}
+.ep-txt{font-size:.9rem;line-height:1.5;color:var(--ink)}
+.ep-empty{background:var(--card);border:1px dashed var(--line);border-radius:14px;padding:22px;text-align:center;color:var(--muted)}
+.ep-empty .ep-eyebrow{margin-bottom:8px}
+.backup-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.backup-msg{font-size:.8rem;color:var(--vine);margin-top:8px;min-height:1em}
+.cfilters{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0 10px;position:sticky;top:0;background:var(--paper);padding:8px 0;z-index:5}
+.cfilter{border:1px solid var(--line);background:var(--card);border-radius:20px;padding:6px 12px;font-family:inherit;font-size:.8rem;cursor:pointer;color:#3b332e}
+.cfilter.on{background:var(--garnet);color:#fff;border-color:var(--garnet)}
+.cfilter .cnum{opacity:.7;font-size:.74rem}
+.cadd{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:14px}
+.cadd-title{font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px}
+.cinput{width:100%;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-family:inherit;font-size:.85rem;margin-bottom:7px;box-sizing:border-box;background:#fff;color:var(--ink)}
+.cadd-row{display:flex;gap:7px}
+.cinput.sm{flex:1;min-width:0}
+.clist{display:flex;flex-direction:column;gap:9px}
+.citem{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+.citem-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.cmod{display:inline-block;font-size:.66rem;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:1px 6px;vertical-align:middle;letter-spacing:.04em}
+.cname{font-weight:600;font-size:.88rem;color:var(--ink)}
+.cmeta{font-size:.76rem;color:var(--muted);margin:4px 0 8px}
+.cdel{background:none;border:none;color:var(--muted);font-size:1.2rem;line-height:1;cursor:pointer;padding:0 2px}
+.cstatuses{display:flex;gap:6px}
+.cstatus{flex:1;border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:7px 4px;font-family:inherit;font-size:.76rem;cursor:pointer;color:#6b615a}
+.cstatus.on.want{background:var(--gold);color:#fff;border-color:var(--gold)}
+.cstatus.on.bought{background:var(--vine);color:#fff;border-color:var(--vine)}
+.cstatus.on.tasted{background:var(--garnet);color:#fff;border-color:var(--garnet)}
 /* Module view */
 .backlink{display:inline-flex;align-items:center;gap:6px;color:var(--garnet);font-weight:600;font-size:.85rem;text-decoration:none;padding:18px 0 6px;cursor:pointer;background:none;border:none;font-family:inherit}
 .modhead{padding:6px 0 14px;text-align:center}
@@ -207,7 +251,7 @@ const COURSE = { modules: [
   ]},
 
 { id:2, no:"Module Two", title:"Chardonnay, Three Ways: Terroir Made Visible", subtitle:"Chablis vs Mâcon vs Niagara — one grape, three places, and every winemaking lever on display.",
-  bottles:{cellar:3, buy:0},
+  bottles:{cellar:3, buy:1},
   objectives:[
     "Explain how climate (Chablis vs Mâconnais vs Niagara) shows up in acid, fruit ripeness and alcohol.",
     "Detect the three big white-winemaking levers: oak, malolactic conversion, and lees contact.",
@@ -252,18 +296,26 @@ const COURSE = { modules: [
      nose:"Clean, med+ intensity. Yellow apple, pear, lemon curd, plus winemaking notes: subtle vanilla/toast, a creamy lees note.",
      palate:"Dry; acidity med+ (the Escarpment keeps it fresh); alcohol medium; body medium to med+; orchard fruit with hazelnut/cream on the finish; medium+ length.",
      conclusions:"Canada · Ontario · Niagara Escarpment VQA · Chardonnay · 1–4 years · 10–14°C (slightly warmer than the unoaked pair). Food: your roast chicken with pan jus; seared scallops.",
-     tips:"This is the bottle where you should detect winemaking most clearly. Name the lever: is it oak (vanilla/toast), MLF (butter/cream), lees (dough/nut) — or all three quietly together?"}}
+     tips:"This is the bottle where you should detect winemaking most clearly. Name the lever: is it oak (vanilla/toast), MLF (butter/cream), lees (dough/nut) — or all three quietly together?"}},
+   {name:"Nuiton-Beaunoy Côte d'Or Bourgogne Chardonnay", src:"buy", role:"The missing fourth corner — real Côte d'Or limestone fruit with French-oak barrel aging. This is the 'white Burgundy' people mean when they say the phrase.", sku:"Vintages #48973 · $29.95 · June 6 2026 release — verified",
+    key:{appearance:"Medium straw-gold, a shade deeper than the others — barrel time and lees add visual weight; medium viscosity.",
+     nose:"Med+ intensity. Where the unoaked wines lead with pure fruit, this layers in winemaking: white peach, citrus and acacia flower lifted by subtle vanilla, toast, hazelnut and a touch of honey. The oak should season, not dominate.",
+     palate:"Dry; acidity medium to med+ (riper Côte d'Or fruit softens it below Chablis's edge); alcohol medium-high (~13%); body medium to medium+ with a creamy, almost custardy lees texture; flavour intensity med+; finish med+, fruit folding into a nutty, savoury close.",
+     conclusions:"France · Burgundy · Côte d'Or (Bourgogne Blanc) · Chardonnay · drink now–2028 · 10–13°C. Food: roast chicken, lobster, mushroom risotto, soft cheeses.",
+     tips:"This bottle isolates the two variables your other three never show: OAK (vanilla/toast/hazelnut) and LEES TEXTURE (that creamy weight). Serve it at the warm end, ~13°C — oaked Chardonnay opens slower than the lean ones. Against Chablis the contrast is winemaking, not place: same grape, barrel vs steel. Against the Mâcon it's a class up in concentration from the same broad region."}}
   ],
   plan:[
+   "<b>The four corners:</b> this module now isolates two variables across four wines. CLIMATE runs cool→warm: Chablis (cool, steel) → Mâcon (warm, steel). WINEMAKING runs steel→barrel: the unoaked French pair → the oaked Côte d'Or → your Cave Spring (New World oaked). Chablis vs Côte d'Or is the key pair — same grape, same broad region, the only big difference is the barrel.",
    "<b>Sitting 1:</b> Chablis alone, full sheet. Spend extra time on the nose — minerality is easiest to learn when nothing else is shouting.",
-   "<b>Sitting 2:</b> Mâcon alone, full sheet. Then a 30 mL splash of Chablis beside it: rank acid, fruit ripeness, body.",
-   "<b>Sitting 3 (the main event):</b> All three, 50 mL each, lean to rich. Fill a sheet only for the Cave Spring; for the French pair just update your notes. Write one sentence per wine starting 'This tastes like it comes from…'.",
-   "<b>Sitting 4 (blind, optional):</b> Vince pours two of the three; you identify which is which from structure alone. This is genuinely doable and very satisfying."
+   "<b>Sitting 2:</b> Mâcon alone, full sheet. Then a 30 mL splash of Chablis beside it: rank acid, fruit ripeness, body. This is your CLIMATE axis (both unoaked).",
+   "<b>Sitting 3 (the oak lesson):</b> Côte d'Or alone, full sheet — serve it warmest, ~13°C, it opens slowly. Then 30 mL of Chablis beside it: same grape, barrel vs steel. Name what the oak and lees add — vanilla, toast, hazelnut, that creamy weight. This is your WINEMAKING axis.",
+   "<b>Sitting 4 (the main event):</b> All four, 50 mL each, arranged Chablis → Mâcon → Côte d'Or → Cave Spring. Fill a sheet for the Côte d'Or and Cave Spring; update notes for the French pair. Write one sentence per wine starting 'This tastes like it comes from…'. Then place each on the two axes: how cool? how oaked?",
+   "<b>Sitting 5 (blind, optional):</b> Vince pours two or three; you identify each from structure alone. Distinguishing the two oaked wines (Côte d'Or vs Cave Spring) from the two steel wines is the real skill — then telling Old World from New within each pair."
   ],
   reading:[
-   "Wine Bible: 'Burgundy' chapter — intro, Chablis and the Mâconnais sections; sidebar on malolactic/lees if your edition includes it.",
+   "Wine Bible: 'Burgundy' chapter — intro, Chablis and the Mâconnais sections; add the Côte de Beaune (white) pages — Meursault, Puligny — for the Côte d'Or bottle; sidebar on malolactic/lees if your edition includes it.",
    "Wine Folly: Chardonnay grape profile; Burgundy regional pages.",
-   "World Atlas of Wine: Burgundy opening spread + Chablis map (find Le Finage's home turf around the town) + Mâconnais map; the Ontario/Canada page for Cave Spring's Beamsville Bench."
+   "World Atlas of Wine: Burgundy opening spread + Chablis map (find Le Finage's home turf around the town) + the Côte d'Or / Côte de Beaune spread (Pommard, Meursault — your new bottle's sources) + Mâconnais map; the Ontario/Canada page for Cave Spring's Beamsville Bench."
   ],
   quiz:[
    {q:"Order these north to south:", o:["Mâconnais → Côte d'Or → Chablis","Chablis → Côte d'Or → Mâconnais","Côte d'Or → Chablis → Mâconnais","Chablis → Mâconnais → Côte d'Or"], a:1, e:"Chablis is the cold northern outpost; the Côte d'Or is the heart; the Mâconnais is the warm south, just above Beaujolais."},
@@ -321,13 +373,20 @@ const COURSE = { modules: [
      nose:"Clean, HIGH intensity — it leaps from the glass. Passionfruit, grapefruit, guava, gooseberry, fresh grass, a boxwood note — plus, unusually for Marlborough, a flinty, stony layer underneath (older vines, wild-yeast leanings).",
      palate:"Bone dry — drier than mass-market Marlborough; acidity high; alcohol medium (13%); body light-medium; tropical-citrus intensity with a saline, mineral close; med+ finish.",
      conclusions:"New Zealand · Marlborough · Sauvignon Blanc · 1–4 years (this one can age) · 6–10°C. Food: Thai salads, ceviche, anything with lime and herbs.",
-     tips:"Smell this beside the Sancerre and name the difference: intensity (volume) AND aroma family (thiol tropicals vs pyrazine greens). Then notice what Dog Point adds over supermarket Marlborough: restraint, texture, a stony spine — proof New World doesn't have to mean simple. That contrast is the most teachable comparison in white wine."}}
+     tips:"Smell this beside the Sancerre and name the difference: intensity (volume) AND aroma family (thiol tropicals vs pyrazine greens). Then notice what Dog Point adds over supermarket Marlborough: restraint, texture, a stony spine — proof New World doesn't have to mean simple. That contrast is the most teachable comparison in white wine."}},
+   {name:"Pouilly-Fumé (optional add — e.g. Domaine Masson-Blondelet, Henri Bourgeois, or de Ladoucette)", src:"buy", role:"Sancerre's twin across the river — same grape, neighbouring villages, the tightest terroir comparison in Sauvignon Blanc. Optional but ideal.", sku:"Vintages — recurring; ~$28–45 depending on producer. (Name trap: Pouilly-FUMÉ = Loire Sauvignon Blanc; Pouilly-FUISSÉ = Mâcon Chardonnay.)",
+    key:{appearance:"Pale straw, faint green tint, light viscosity.",
+     nose:"Clean, med to med+ intensity. Gooseberry, grapefruit, white peach, cut grass — and the signature: a smoky, gunflint, struck-match minerality ('fumé') from the silex (flint) soils. More subtle and smoke-tinged than Sancerre's sometimes-louder citrus.",
+     palate:"Bone dry; acidity high; alcohol medium (12.5–13%); body light-medium; citrus and stone with a flinty, almost saline mineral core; med+ finish.",
+     conclusions:"France · Loire (Pouilly-sur-Loire) · Sauvignon Blanc · 2–5 years · 8–10°C. Food: goat cheese (Crottin de Chavignol is the local law), oysters, sole.",
+     tips:"Taste beside your Sancerre — same grape, opposite bank of the Loire. Hunt the difference: Pouilly-Fumé's flinty smoke vs Sancerre's brighter citrus-and-chalk. It's the Chablis-vs-Mâcon lesson replayed in Sauvignon: one grape, neighbouring soils, and the dirt does the talking. Given your high-acid mineral palate, this may become your favourite Sauvignon of the three."}}
   ],
   plan:[
    "<b>Sitting 1:</b> Sancerre, full sheet. Linger on the nose; build your 'green' vocabulary (grass vs nettle vs bell pepper).",
    "<b>Sitting 2:</b> Dog Point, full sheet. Then 30 mL of Sancerre alongside: write three words for each wine's aroma family.",
    "<b>Sitting 3:</b> Saint-Bris, full sheet, with small pours of both others. Rank the trio on intensity, then on minerality. Where does Saint-Bris land? (Most tasters: quietest, stoniest.)",
-   "<b>Sitting 4 (blind):</b> Vince pours one of the three. Call it from the nose alone before sipping. With this trio your hit rate should be high — enjoy the win."
+   "<b>Sitting 4 (if you added Pouilly-Fumé — the terroir twin):</b> Full sheet on the Pouilly-Fumé, then 30 mL of Sancerre beside it. Same grape, opposite bank of the Loire. Hunt the one real difference: flinty smoke (Pouilly-Fumé, silex soils) vs brighter citrus-and-chalk (Sancerre). This is Chablis-vs-Mâcon replayed in Sauvignon.",
+   "<b>Sitting 5 (blind):</b> Vince pours one of the set. Call it from the nose alone before sipping. With this group your hit rate should be high — enjoy the win."
   ],
   reading:[
    "Wine Bible: 'The Loire' chapter — Sancerre/Pouilly-Fumé section; New Zealand chapter, Marlborough section.",
@@ -347,8 +406,8 @@ const COURSE = { modules: [
    {q:"APPLIED — Your weekly farm box delivers asparagus and fresh herbs. Notoriously wine-hostile asparagus is best with…", o:["Oaked Chardonnay","A green, high-acid Sauvignon Blanc","Tannic Cabernet","Tawny Port"], a:1, e:"Match green with green: pyrazine-driven Sauvignon embraces asparagus' grassy sulfur notes. Tannin and oak clash hard."}
   ]},
 
-{ id:4, no:"Module Four", title:"Aromatic Whites: Riesling, Pinot Gris & Viognier", subtitle:"Terpenes, the sweetness-acid seesaw, and why Alsace labels by grape.",
-  bottles:{cellar:2, buy:1},
+{ id:4, no:"Module Four", title:"Aromatic Whites: Riesling, Pinot Gris & Gewürztraminer", subtitle:"Terpenes, the sweetness-acid seesaw, and why Alsace labels by grape.",
+  bottles:{cellar:1, buy:2},
   objectives:[
     "Judge sweetness accurately by separating sugar (tongue) from fruitiness (brain) — the Mosel Kabinett test.",
     "Profile the three aromatic archetypes: Riesling (citrus/terpene/mineral), Pinot Gris (rich orchard/smoke), Viognier (apricot/floral, low acid).",
@@ -366,7 +425,7 @@ const COURSE = { modules: [
    ]},
    {h:"Alsace, revisited from your notes", p:[
     "Your GBC notes nailed the fundamentals: Alsace hides in the Vosges rain shadow, making it one of France's sunniest, driest wine regions despite its northern latitude — hence ripe, fuller whites and a haven for organic farming. It labels by variety (rare in France), permits only Pinot Noir among reds, and rarely uses new oak or much MLF. Vendanges Tardives = late harvest (riper, not necessarily sweet); Sélection de Grains Nobles = botrytis-selected berries, lusciously sweet. The Willm Pinot Gris you calibrated with in Module 1 now gets its proper close-up: taste for the smoky, honeyed richness that separates Alsace PG from Italian Grigio.",
-    "Viognier's home is Condrieu, but your La Foule is a southern-French rendition — sunnier, plusher, great value. The teaching contrast with Riesling could not be sharper: Viognier is all perfume and texture with soft acid; Riesling is all tension. Body and acidity are independent axes — this trio proves it."
+    "You've already met Viognier — your informal La Foule tasting logged the low-acid pole: all perfume and oily texture, barely any salivation. Gewürztraminer now takes its module slot as the terpene archetype: lychee, rose and ginger at full volume, with the same soft acid but a firmer, spicier finish (especially from Trimbach, Alsace's driest house). The teaching contrast with Riesling could not be sharper: Gewürz is perfume and texture; Riesling is tension. Body and acidity are independent axes — this trio proves it."
    ]}
   ],
   wines:[
@@ -382,18 +441,18 @@ const COURSE = { modules: [
      palate:"Dry to off-dry; acidity medium (the lowest-tension wine here after the Viognier); alcohol med+; body med+; finish medium+ with a smoky-honey echo.",
      conclusions:"France · Alsace · Pinot Gris · 1–4 years · 8–12°C. Food: tarte flambée, roast pork, washed-rind cheese.",
      tips:"Versus the Kabinett: similar 'maybe a little sweet?' impression, completely different mechanism — here it's ripeness, alcohol and texture; there it's literal sugar held up by acid."}},
-   {name:"La Foule Viognier (South of France)", src:"cellar", role:"The perfumed, low-acid pole — proof that body and acidity are separate dials.", sku:"From your cellar",
-    key:{appearance:"Bright, straw to pale gold, medium+ viscosity, legs from alcohol.",
-     nose:"Clean, HIGH intensity. Apricot, honeysuckle, orange blossom, ripe peach, a gardenia-like floral lift.",
-     palate:"Dry (but reads ripe-sweet); acidity LOW to med− — notice how little your mouth waters; alcohol med+ to high; body full for a white, oily texture; finish medium, slightly warm.",
-     conclusions:"France · Languedoc/Rhône-adjacent IGP · Viognier · drink now (1–2 years — aromatics fade fast) · 8–12°C. Food: apricot-glazed chicken, mild Indian, lobster.",
-     tips:"This is your low-acid reference for the whole course. If a mystery white smells like an orchard in bloom and barely makes you salivate, think Viognier (or Gewürztraminer — that one adds lychee and rose)."}}
+   {name:"Trimbach Gewürztraminer, Alsace", src:"buy", role:"The archetype of the terpene family — lychee, rose, ginger — from Alsace's driest, most structured house. Replaces the Viognier (already tasted informally: your low-acid calibration is logged). Also your first deliberate typicity exercise: judge it as a Gewürztraminer, not as a Chablis that failed.", sku:"Vintages #958462 · $38.95 · June 20 2026 release — verified",
+    key:{appearance:"Bright straw-gold, medium+ viscosity.",
+     nose:"Clean, PRONOUNCED — the loudest nose in the course so far. Lychee (the diagnostic marker), rose petal, ginger, orange peel, tropical stone fruit, a musky floral depth.",
+     palate:"Dry (Trimbach's signature — many Gewürz have residual sugar; this one doesn't); acidity low to med− — note the modest salivation; alcohol med+ (~14%); body full, textural, faintly oily; finish med+ with a classic gingery, bitter-spice snap that keeps it from cloying.",
+     conclusions:"France · Alsace · Gewürztraminer · drink now–5 years · 8–12°C. Food: Thai, aromatic curries, Munster cheese (the Alsatian law), duck à l'orange.",
+     tips:"Two exercises in one glass. First, the marker: lychee + rose = Gewürztraminer, forever — file it beside petrol-Riesling. Second, the sommelier drill: fill the structure and quality sections as the analyst (is it concentrated? defined? long? typical?), then add one honest hedonic line at the bottom. 'Well-made, pronounced, structured — not my style' is a professional's note, and probably yours."}}
   ],
   plan:[
    "<b>Sitting 1:</b> The Kabinett solo, full sheet. Do the sweetness call carefully, write it down, then check the abv on the label and read the key.",
-   "<b>Sitting 2:</b> Viognier solo, full sheet. Compare your salivation response to memory of the Riesling — then verify with 30 mL of the Kabinett.",
-   "<b>Sitting 3:</b> All three, 40 mL each, in order Riesling → Pinot Gris → Viognier. Rank: acidity, body, aromatic intensity, alcohol. Note that the rankings differ — that's the module's thesis.",
-   "<b>Sitting 4 (applied):</b> Order or cook something genuinely spicy. Taste the Kabinett and the Viognier with it. Which handles the heat? (Spoiler: sugar + low alcohol wins.)"
+   "<b>Sitting 2:</b> Gewürztraminer solo, full sheet. Compare your salivation response to memory of the Riesling — then verify with 30 mL of the Kabinett.",
+   "<b>Sitting 3:</b> All three, 40 mL each, in order Riesling → Pinot Gris → Gewürztraminer. Rank: acidity, body, aromatic intensity, alcohol. Note that the rankings differ — that's the module's thesis.",
+   "<b>Sitting 4 (applied):</b> Order or cook something genuinely spicy. Taste the Kabinett and the Gewürztraminer with it. Which handles the heat? (Spoiler: sugar + low alcohol wins.)"
   ],
   reading:[
    "Wine Bible: Germany chapter (Mosel + Prädikat system); Alsace chapter — cross-check against your own GBC notes.",
@@ -409,8 +468,8 @@ const COURSE = { modules: [
    {q:"Vendanges Tardives on an Alsace label means…", o:["Always a dessert wine","Late-harvested, riper fruit — sometimes sweet, sometimes nearly dry","Botrytis-affected berries only","Sparkling"], a:1, e:"VT = late harvest = more sugar at picking, but the final style varies. SGN is the reliably sweet, botrytis-selected tier."},
    {q:"Pinot Gris and Pinot Grigio are…", o:["Different grapes","The same grape in two stylistic traditions — rich Alsace vs brisk early-picked Italian","A red and a white grape","Both synonyms for Pinot Blanc"], a:1, e:"Same variety; picking date, yields and intent create opposite wines. Naming signals style."},
    {q:"Viognier's structural signature is…", o:["High acid, light body","Low acid, full body, high aromatics, warmish alcohol","High tannin","Neutral aromatics"], a:1, e:"Perfume without tension. It's the proof grape that aromatic intensity and acidity are independent dials."},
-   {q:"TASTE ID — water-pale, lime + slate + peach, light body, sweetness up front swept away by racing acid, 8.5% abv. Best fit?", o:["Alsace Pinot Gris","Mosel Riesling Kabinett-style","Languedoc Viognier","Saint-Bris Sauvignon"], a:1, e:"Low alcohol + slate + the sugar/acid dance is Mosel in a sentence."},
-   {q:"APPLIED — Friday night Szechuan delivery. The chili-friendliest bottle in this module is…", o:["La Foule Viognier (14%)","The Mosel Kabinett (8%, off-dry)","Willm Pinot Gris (13.5%)","None — drink red with spice"], a:1, e:"Capsaicin amplifies alcohol burn and is soothed by sugar. Low-abv off-dry Riesling is the takeout MVP."}
+   {q:"TASTE ID — water-pale, lime + slate + peach, light body, sweetness up front swept away by racing acid, 8.5% abv. Best fit?", o:["Alsace Pinot Gris","Mosel Riesling Kabinett-style","Dry Alsace Gewürztraminer","Saint-Bris Sauvignon"], a:1, e:"Low alcohol + slate + the sugar/acid dance is Mosel in a sentence."},
+   {q:"APPLIED — Friday night Szechuan delivery. The chili-friendliest bottle in this module is…", o:["The Gewürztraminer (14%, dry)","The Mosel Kabinett (8%, off-dry)","Willm Pinot Gris (13.5%)","None — drink red with spice"], a:1, e:"Capsaicin amplifies alcohol burn and is soothed by sugar. Low-abv off-dry Riesling is the takeout MVP."}
   ]},
 { id:5, no:"Module Five", title:"Light Reds: Pinot Noir & Gamay", subtitle:"Translucence, perfume and the carbonic question — Burgundy's hierarchy meets Beaujolais' granite.",
   bottles:{cellar:0, buy:2},
@@ -438,25 +497,25 @@ const COURSE = { modules: [
    ]}
   ],
   wines:[
-   {name:"Domaine d'Argenson 'Les Pierreux' Brouilly", src:"buy", role:"Cru Beaujolais: Gamay with granite seriousness. (Backup: Georges Duboeuf Brouilly #22669 or Jaffelin Brouilly #42030.)", sku:"LCBO #29970 · $24.95",
+   {name:"Hospices de Beaujeu Régnié", src:"buy", role:"Cru Beaujolais: Gamay with granite seriousness, from one of the region's oldest charitable estates. (Backups if sold through: Georges Duboeuf Brouilly #22669, Jaffelin Brouilly #42030.)", sku:"Vintages #49860 · $23.95 · July 4 2026 release — verified",
     key:{appearance:"Bright, medium ruby with violet flashes, youthful rim, medium viscosity — darker than you'd expect from 'light red'.",
      nose:"Clean, med+ intensity. Crunchy red fruit (cherry, raspberry, redcurrant), violets, white pepper; listen for a faint candied/kirsch note — the semi-carbonic whisper.",
      palate:"Dry; acidity med+ to high; tannin soft to med−, fine-grained; alcohol medium (12.5–13%); body medium−; juicy red fruit with a stony, faintly bitter-cherry finish; medium+ length.",
-     conclusions:"France · Beaujolais · Brouilly cru · Gamay · 1–4 years · 14–16°C, lightly chilled. Food: roast chicken, charcuterie, salmon — the great bistro all-rounder.",
+     conclusions:"France · Beaujolais · Régnié cru · Gamay · 1–4 years · 14–16°C, lightly chilled. Food: roast chicken, charcuterie, salmon, burgers — the great bistro all-rounder.",
      tips:"Cru Beaujolais is the wine-trade's favourite value secret. If you love this, Morgon and Moulin-à-Vent are the 'next step up' crus to chase in Vintages releases."}},
-   {name:"Bachelder Les Villages Bench Pinot Noir VQA", src:"buy", role:"Thomas Bachelder's Burgundy-trained, multi-vineyard Escarpment blend — Niagara Pinot at its most Burgundian. (Old-World comparison: grab any Bourgogne Rouge from a monthly Vintages release, $25–40.)", sku:"Vintages #11582 · $34.95 · recurring release — verified",
+   {name:"Paul Benoit Bourgogne Pinot Noir", src:"buy", role:"Old World Pinot at village-adjacent level — the classic partner to cru Beaujolais, making this an all-French light-red flight. (If the Bachelder Les Villages returns to Vintages, it slots in as an optional New World third pour.)", sku:"Vintages #49289 · $27.95 · July 4 2026 release — bought",
     key:{appearance:"Pale to medium ruby, translucent — read your hand through it; youthful rim; low-medium viscosity.",
-     nose:"Clean, medium+ intensity. Morello cherry, cranberry, wild raspberry, a flinty/limestone edge, dried herbs, subtle toasty spice from gentle oak.",
-     palate:"Dry; acidity med+; tannin soft, silky; alcohol medium (~12.5–13%); body medium−; red fruit with a saline, tea-leaf savouriness; medium+ finish.",
-     conclusions:"Canada · Niagara Escarpment VQA · Pinot Noir · 2–8 years · 14–16°C. Food: duck, mushroom risotto, salmon, your roast-chicken-and-farm-box dinners.",
-     tips:"Versus the Brouilly: similar weight class, but Pinot is satin where Gamay is gingham — earthier, more cherry-pie, less crunch. Naming that texture difference blind is a genuine skill milestone."}}
+     nose:"Clean, medium intensity and it may open slowly — swirl and wait. Red cherry, raspberry, forest floor, beetroot, dried rose, a savoury earthy undertone with subtle spice.",
+     palate:"Dry; acidity med+ (Burgundy keeps its nerve); tannin soft, silky, fine-grained; alcohol medium (~12.5–13%); body medium−; red fruit wrapped in earth and tea-leaf savouriness; medium+ finish.",
+     conclusions:"France · Burgundy (regional Bourgogne AOC) · Pinot Noir · 2–6 years · 14–16°C. Food: duck, mushroom risotto, salmon, roast chicken.",
+     tips:"Versus the Régnié: similar weight class, but Pinot is satin where Gamay is gingham — earthier, more cherry-pie, less crunch. Naming that texture difference blind is a genuine skill milestone."}}
   ],
   plan:[
-   "<b>Sitting 1:</b> Brouilly, properly chilled, full sheet. Hunt specifically for the carbonic family (banana/bubblegum/kirsch) — even a trace counts.",
-   "<b>Sitting 2:</b> The Bachelder, full sheet. Hold both glasses to white paper and compare translucence; Pinot is usually paler.",
+   "<b>Sitting 1:</b> The Régnié, properly chilled, full sheet. Hunt specifically for the carbonic family (banana/bubblegum/kirsch) — even a trace counts.",
+   "<b>Sitting 2:</b> The Bourgogne Pinot, full sheet — give it 15 minutes of air first; Burgundy opens slower than Gamay. Hold both glasses to white paper and compare translucence; Pinot is usually paler.",
    "<b>Sitting 3 (head to head):</b> 50 mL each. Same weight class — so differentiate on fruit register (cherry-earth vs crunchy-berry), texture (satin vs juicy), and pepper (Gamay's white-pepper lift).",
    "<b>Sitting 4 (temperature lab):</b> Pour the same wine at fridge-cold, 15°C, and room temp. Sheet only the 15°C pour, but write two lines on what temperature did. You'll never serve red at 22°C again.",
-   "<b>When your Vintages Bourgogne arrives:</b> run it against the Bachelder remainder — the classic old/new Pinot face-off."
+   "<b>Optional third pour:</b> if the Bachelder Les Villages (or any NZ Pinot) crosses your path later, run it against the Benoit remainder — the classic Old/New World Pinot face-off."
   ],
   reading:[
    "Wine Bible: Burgundy chapter (red sections, Côte de Nuits) and the Beaujolais chapter — especially carbonic maceration.",
@@ -890,7 +949,7 @@ const COURSE = { modules: [
    ]},
    {h:"Running the gauntlet at home", p:[
     "Logistics: Vince selects 3–4 Coravin'd survivors from the course (or fresh pours from remaining cellar bottles), pours into identical glasses out of sight, brown-bags or numbers them, and keeps the answer list. You get the sheet, good light, water, plain crackers, and no hints. Whites first, then reds, then anything sweet or sparkling last.",
-    "Score yourself honestly in tiers: structure calls right (the real skill), grape family right (very good), exact region right (gravy). A miss where you called a Mâcon 'Niagara Chardonnay' is a near-bull's-eye — same grape, similar climate logic. A miss where you called Brouilly 'Barossa Shiraz' means revisiting Module 1 structure work.",
+    "Score yourself honestly in tiers: structure calls right (the real skill), grape family right (very good), exact region right (gravy). A miss where you called a Mâcon 'Niagara Chardonnay' is a near-bull's-eye — same grape, similar climate logic. A miss where you called the Régnié 'Barossa Shiraz' means revisiting Module 1 structure work.",
     "Repeat the gauntlet quarterly. Blind tasting is a perishable skill and a renewable pleasure — it's also the single best way to evaluate Vintages purchases honestly, free of label influence."
    ]},
    {h:"Your continuing curriculum", p:[
@@ -906,7 +965,7 @@ const COURSE = { modules: [
      nose:"—",
      palate:"—",
      conclusions:"Your answer key is Vince's list. Score: structure calls / grape family / region, in that order of importance.",
-     tips:"Classic confusions to expect: Mâcon vs Cave Spring (same grape — listen for oak and ripeness), Sancerre vs Dog Point (pyrazine subtlety vs thiol volume), Brouilly vs Bachelder Pinot (granite crunch vs silk), Beronia vs Chianti (coconut-dill oak vs sour cherry dust), Douro vs Monastrell (violets and schist vs sun-dried herbs). If a wine has faded after months under argon, judge structure, not intensity."}}
+     tips:"Classic confusions to expect: Mâcon vs Cave Spring (same grape — listen for oak and ripeness), Sancerre vs Dog Point (pyrazine subtlety vs thiol volume), Régnié vs Bourgogne Pinot (granite crunch vs silk), Beronia vs Chianti (coconut-dill oak vs sour cherry dust), Douro vs Monastrell (violets and schist vs sun-dried herbs). If a wine has faded after months under argon, judge structure, not intensity."}}
   ],
   plan:[
    "<b>Round 1 (solo warm-up):</b> have Vince pour two glasses while you're out of the room. Full deduction on each, commit in writing, reveal, post-mortem.",
@@ -932,8 +991,186 @@ const COURSE = { modules: [
    {q:"Your Vintages monthly-email strategy should prioritize…", o:["Whatever has the prettiest label","Gap-map and watch-list categories at set budgets — cru bourgeois, village Burgundy, Sauternes 375s, grower Champagne","Only 95+ point scores","Buying cases of one wine"], a:1, e:"Targeted gaps keep the cellar teaching; scores and labels are how everyone else shops."},
    {q:"TASTE ID — fine bead, brioche, searing acid, bone dry… but you're blind. Which conclusion is safest?", o:["It's definitely Champagne","Traditional-method sparkling with significant lees aging; region needs more evidence","It's Prosecco","It's icewine"], a:1, e:"Method and lees time are provable from the glass; Champagne vs Crémant vs top Cava often is not. Claim what the evidence supports."},
    {q:"APPLIED — You call a wine 'Mâcon-Villages' and it's revealed as Niagara Chardonnay. The right takeaway is…", o:["You failed completely","Near-miss: same grape, similar cool-climate logic — sharpen the oak/ripeness tiebreakers","Blind tasting is random","Never guess again"], a:1, e:"Family-level accuracy is real skill. Note the tells you missed (riper fruit? different oak?) and recalibrate — that's the entire game."}
+  ]},
+{ id:13, no:"Appendix A", title:"Chenin Blanc: Loire to the Cape", subtitle:"The course's missing grape — one variety across the full dry-to-sweet range, from Savennières steel to Vouvray demi-sec to South African Chenin.",
+  bottles:{cellar:0, buy:3},
+  objectives:[
+    "Recognize Chenin Blanc's through-line — searing acidity plus a waxy/lanolin, quince-and-chamomile signature — across wildly different sweetness levels.",
+    "Map Chenin's Loire homes: bone-dry Savennières, off-dry-to-sweet Vouvray, and the sweetness ladder (sec / demi-sec / moelleux) that confuses everyone.",
+    "Compare Old World (Loire) restraint and minerality with New World (South African) Chenin's riper fruit and richer texture.",
+    "Place Chenin against your high-acid palate map: where does it sit relative to Chablis, Sancerre and Assyrtiko?"
+  ],
+  lesson:[
+   {h:"Why Chenin earns an appendix", p:[
+    "Chenin Blanc is the great omission from a 12-module course built on French classics — it falls between the cracks because it does too many things at once. It's the Loire's most versatile white and South Africa's most-planted grape, and it spans the entire sweetness spectrum from steely-dry to lusciously botrytised, often from the same village. For a taster with your profile — Chablis first, high-acid and mineral over rich and oaky — Chenin is almost custom-built: even its sweet versions are held together by ferocious acidity.",
+    "The variety's through-line, the thing that says 'Chenin' blind, is a combination: piercing acidity, a waxy or lanolin texture (think candle wax, wet wool), and aromas of quince, ripe apple, chamomile, honey and wet hay — even in dry examples, where the honey reads as a scent rather than sweetness. Bruised-apple and a faint wool note are your fingerprints. File them in the Marker Library between Riesling and the aromatic whites."
+   ]},
+   {h:"The Loire's many Chenins", p:[
+    "Savennières (Anjou) is Chenin at its most austere and age-worthy: bone-dry, mineral, high-acid, with that waxy weight and a stony bite — frequently tight and unyielding when young, needing air or years. This is the bottle most likely to become a personal favourite given your palate; treat it like white Burgundy's serious cousin and decant it.",
+    "Vouvray (Touraine) is the shapeshifter, and the source of most Chenin confusion: it's made sec (dry), demi-sec (off-dry), moelleux (sweet) and sparkling, and the label doesn't always shout which — so a 'Vouvray' can surprise you. Demi-sec is the classic: a kiss of sugar buffered by Chenin's electric acid, which is why it ages for decades and pairs with everything from pork to Thai. Your Module 4 sweetness-vs-acid skill applies directly.",
+    "The sweetness ladder to memorize: sec (dry) → demi-sec (off-dry, ~10–30 g/L) → moelleux (sweet) → and at the top, botrytised Quarts-de-Chaume and Bonnezeaux, the noble-rot Chenins that rival Sauternes (a Module 11 callback). One grape, the whole spectrum."
+   ]},
+   {h:"South Africa: Chenin reborn", p:[
+    "The Cape has more Chenin (locally long called 'Steen') than the entire Loire — much of it old-vine, dry-farmed bush vines decades old. South African Chenin ranges from crisp, unoaked, tropical-and-citrus everyday whites to serious barrel-aged old-vine bottlings (Swartland especially) with stone fruit, honey and a lanolin richness.",
+    "Tasted beside a Savennières, the contrast is the Old World / New World lesson you've run before in other grapes: the Loire wine is leaner, stonier, higher-acid and more reticent; the Cape wine is riper, rounder, more openly fruity and often a touch more alcohol. Same grape DNA — quince, wax, honey-scent — expressed under more sun. This is also your course's South Africa thread (the Loire-to-Cape Chenin connection) finally made explicit."
+   ]}
+  ],
+  wines:[
+   {name:"Savennières (e.g. Domaine du Closel, Baumard, or Château de Plaisance)", src:"buy", role:"Dry Loire Chenin at its most serious and mineral — your palate's likely favourite of the three.",
+    sku:"Domaine des Baumard Clos de Saint-Yves, LCBO #16717 (or Clos du Papillon upgrade) · ~$30–45 · check store/flagship stock. Decant young bottles.",
+    key:{appearance:"Pale to medium straw-gold, medium viscosity.",
+     nose:"Med to med+, often tight at first (give it air). Quince, ripe pear, chamomile, beeswax, wet wool/lanolin, a flinty-stony mineral edge, honey as a scent not a taste.",
+     palate:"Bone dry; acidity high; alcohol medium-high (13–14%); body medium with a distinctive waxy/oily texture; long stony finish. Can feel austere young — that's the style, not a fault.",
+     conclusions:"France · Loire (Anjou/Savennières) · Chenin Blanc · ages 10–20+ years · 10–12°C. Food: roast chicken, pork, hard cheese, beurre-blanc fish.",
+     tips:"Decant it — young Savennières is famously closed, and air is transformative. Hunt the waxy texture (run it across your tongue) and the honey-scent-without-sweetness; those are pure Chenin. Then place it on your map: more acid than the Côte d'Or, stonier than the Mâcon — likely right in your Chablis wheelhouse."}},
+   {name:"Vouvray Demi-Sec (e.g. Champalou, Huët, or Domaine Vigneau-Chevreau)", src:"buy", role:"The off-dry shapeshifter — Chenin's sweetness-vs-acid balancing act in one glass.",
+    sku:"Rotates at Vintages — watch-list item. Search lcbo.com 'Vouvray', filter still, look for 'demi-sec' (Champalou, Huët, Ch. Moncontour). A Vouvray sec works if demi-sec is unavailable.",
+    key:{appearance:"Pale gold, sometimes faintly deeper, medium viscosity.",
+     nose:"Med+ intensity. Ripe apple, pear, quince, acacia honey, chamomile, beeswax, a wet-hay note; honeyed but lifted.",
+     palate:"Off-dry (find the sugar at the tongue tip) — but Chenin's HIGH acid scrubs it so it never feels heavy; alcohol medium (12–12.5%); body medium, waxy; long, honey-and-citrus finish that reads almost dry by the end.",
+     conclusions:"France · Loire (Touraine/Vouvray) · Chenin Blanc, demi-sec · ages 20+ years · 8–10°C. Food: pork with apple, Thai/Vietnamese, blue cheese, foie gras, smoked fish.",
+     tips:"This is the wine where you feel the sugar-acid seesaw most clearly — the sweetness is there but counterweighted to a draw. Re-run your Module 4 tongue-tip test. Note how the same grape that made the bone-dry Savennières can hold real sugar and stay electric: acidity is the hinge."}},
+   {name:"South African old-vine Chenin Blanc (e.g. Raats, Beaumont, Ken Forrester, Spier)", src:"buy", role:"The New World counterpoint — riper, rounder Chenin and your South Africa thread.",
+    sku:"Ken Forrester Old Vine Reserve, LCBO #231282, ~$19–25 · general list, 'Always Available'. (Raats Old Vine #494559 a leaner alt.)",
+    key:{appearance:"Medium straw-gold (deeper if barrel-aged), medium+ viscosity.",
+     nose:"Med+ to pronounced. Yellow apple, ripe pear, peach, pineapple, guava, honey, beeswax; if oaked, vanilla/toast and a creamy layer.",
+     palate:"Dry to off-dry; acidity med+ (high for the ripeness, but softer than the Loire pair); alcohol medium-high (13.5–14%); body medium+ and rounder, with that lanolin richness; med+ finish.",
+     conclusions:"South Africa · Western Cape (Swartland/Stellenbosch) · Chenin Blanc · drink now–6 yrs · 10–12°C. Food: roast chicken, curries, grilled fish, soft cheese.",
+     tips:"Side-by-side with the Savennières: same grape, more sun. Catch the shared DNA (quince, wax, honey-scent) under the riper fruit and softer acid. Decide which you prefer — and notice it's the same Old World vs New World question you answered with Chablis vs Cave Spring, now in Chenin."}}
+  ],
+  plan:[
+   "<b>This is an appendix, not a timed module:</b> run it whenever, as a three-bottle Chenin flight. Coravin lets it stretch over a week.",
+   "<b>Sitting 1 (Savennières):</b> Full sheet. Decant first, then taste on opening and again 45 min later — watch a closed wine unfurl. Focus on the waxy texture and honey-scent.",
+   "<b>Sitting 2 (Vouvray demi-sec):</b> Full sheet. The tongue-tip sweetness test, then feel the acid counterweight it. Same grape, sugar dialled up.",
+   "<b>Sitting 3 (South African):</b> Full sheet. Hunt the riper-fruit / softer-acid New World signature against the Loire pair.",
+   "<b>Sitting 4 (the spread):</b> All three together, dry → demi-sec → New World. One sentence each on what makes it unmistakably Chenin, and where each sits on your acid-preference map. Bonus: if a botrytised Loire Chenin (Quarts-de-Chaume) ever appears in a Vintages release, that's the sweet apex — flag it.",
+   "<b>With Vince:</b> blind one of the three and call dry vs off-dry, Old vs New World, from structure. Chenin's wax-and-quince fingerprint makes the grape itself surprisingly catchable."
+  ],
+  reading:[
+   "Wine Bible: 'The Loire' chapter — Savennières, Vouvray and the sweet-Anjou (Quarts-de-Chaume/Bonnezeaux) sections; the South Africa chapter — Chenin Blanc / 'Steen' and the old-vine movement.",
+   "Wine Folly: Chenin Blanc grape profile; Loire and South Africa region pages.",
+   "World Atlas of Wine: Anjou-Saumur and Touraine spreads (find Savennières and Vouvray) + the South Africa / Swartland & Stellenbosch pages.",
+   "Optional: any producer note on 'old-vine' or 'bush-vine' Chenin — South Africa's Old Vine Project is a good rabbit hole."
+  ],
+  quiz:[
+   {q:"Chenin Blanc's blind-tasting through-line, across all sweetness levels, is…", o:["Low acid and heavy oak","High acidity plus a waxy/lanolin texture and quince/honey-scent","Bell-pepper pyrazines","Banana and bubblegum"], a:1, e:"Searing acid + wax + quince/chamomile/honey-scent is Chenin's signature whether the wine is bone-dry or sweet."},
+   {q:"Savennières is best described as…", o:["A sweet sparkling Chenin","A bone-dry, mineral, age-worthy Loire Chenin","A South African red","An off-dry rosé"], a:1, e:"Anjou's serious dry Chenin — austere and stony young, often needing air or age. Likely your favourite of the flight."},
+   {q:"A 'Vouvray' can be confusing on the shelf because…", o:["It's always sweet","It's made dry, off-dry, sweet AND sparkling, and the label doesn't always make it obvious","It's never Chenin","It's a red wine"], a:1, e:"Vouvray spans sec, demi-sec, moelleux and sparkling — check the label or shelf tag for the style."},
+   {q:"The Loire sweetness ladder runs…", o:["Moelleux → demi-sec → sec","Sec → demi-sec → moelleux","Brut → extra dry → doux","There's no ladder"], a:1, e:"Dry (sec) → off-dry (demi-sec) → sweet (moelleux), topping out in botrytised Quarts-de-Chaume and Bonnezeaux."},
+   {q:"Why does a Vouvray demi-sec not taste cloying despite real sugar?", o:["It's fortified","Chenin's very high acidity counterweights the sweetness","It has no sugar","It's heavily oaked"], a:1, e:"Perceived sweetness = sugar minus acid; Chenin's electric acid balances the sugar to near-even — and lets these wines age for decades."},
+   {q:"South African Chenin Blanc was historically known locally as…", o:["Steen","Pinotage","Hanepoot","Riesling"], a:0, e:"'Steen' is the old Cape name; South Africa has more Chenin planted than the entire Loire, much of it old bush vines."},
+   {q:"Compared with Savennières, a typical South African old-vine Chenin is…", o:["Leaner, stonier, higher-acid","Riper, rounder, more openly fruity with softer acid","Always sweet","Always sparkling"], a:1, e:"More sun = riper fruit and softer acid; the shared Chenin DNA (quince, wax, honey-scent) sits underneath."},
+   {q:"The botrytised apex of Loire Chenin includes…", o:["Sancerre","Quarts-de-Chaume and Bonnezeaux","Muscadet","Chablis"], a:1, e:"Noble-rot sweet Chenins from Anjou that rival Sauternes — a Module 11 callback in a different grape."},
+   {q:"TASTE ID — high acid, waxy texture, quince, chamomile, honey-on-the-nose but bone dry, stony finish. Best fit?", o:["Oaked Chardonnay","Dry Loire Chenin (Savennières)","Marlborough Sauvignon","Moscato"], a:1, e:"Wax + quince + honey-SCENT with bone-dry high-acid structure = dry Chenin; the Sauvignon would shout pyrazine/thiol, the Chardonnay wouldn't be waxy."},
+   {q:"APPLIED — given your Chablis-first, high-acid mineral palate, which Chenin should you try FIRST?", o:["A sweet moelleux","Dry Savennières","A heavily oaked Cape Chenin","A sparkling demi-sec"], a:1, e:"Bone-dry, mineral, high-acid Savennières maps straight onto your stated preferences — the most likely love-at-first-taste of the appendix."}
   ]}
 ]};
+
+
+/* ---------- audio episodes (Modules 1-3) ---------- */
+const EPISODES = {
+1: { title:"Recalibration — Learning to Taste on Purpose", mins:11, script:[
+ {s:'M', t:"Welcome to the very first episode of your wine course. I'm Margaux, and I'll be your guide through all of this."},
+ {s:'T', t:"And I'm Theo. I know a bit about wine, but mostly I know what I like and not why. So I'm basically the student here."},
+ {s:'M', t:"Perfect, because that's exactly what Module One is about — not learning facts yet, but learning how to taste on purpose. Most people drink wine. We're going to learn to read it."},
+ {s:'T', t:"Read it. Okay, what does that actually mean? When I taste wine I just sort of go… yep, that's nice, that's wine."},
+ {s:'M', t:"Right, and that's the thing we're fixing. The systematic approach breaks tasting into four steps, always in the same order: appearance, nose, palate, conclusions. The order matters because each step sets up the next."},
+ {s:'T', t:"Why can't I just smell it and tell you what I think?"},
+ {s:'M', t:"Because your brain is a terrible witness. If you smell a wine and immediately think 'Chardonnay,' you'll then taste everything you expect from Chardonnay, whether it's there or not. The system slows you down so you describe what's actually in the glass, not what you assume."},
+ {s:'T', t:"So it's like… separating observation from guessing."},
+ {s:'M', t:"Exactly. Observation first, conclusions last. Let's walk the four steps. Step one, appearance. You tilt the glass against something white and look at the colour and its intensity. For whites, the colour runs from pale lemon-green through gold to amber as they age or see oak. For reds, purple when young, to ruby, to garnet, to brick and brown with age."},
+ {s:'T', t:"Wait, so colour tells you the age?"},
+ {s:'M', t:"It's a clue, not a verdict. A pale, watery rim on a red suggests cooler climate or some age. A deep, opaque purple suggests a thick-skinned grape and probably warmth. You're collecting clues, and you're not committing to anything yet."},
+ {s:'T', t:"Got it. Step two is the nose?"},
+ {s:'M', t:"The nose, yes — and this is where most of tasting actually happens. Give the glass a swirl to release the aromas, then short little sniffs, not one big inhale. First you ask: is it clean, or is there a fault? Then: how intense is it? Then, only then, what do you actually smell?"},
+ {s:'T', t:"And this is where I always freeze. People say 'gooseberry' and 'wet stone' and I'm thinking, I just smell wine."},
+ {s:'M', t:"Everyone freezes there at first, and here's the secret: it's a vocabulary problem, not a nose problem. You can smell it; you just can't name it fast enough. That's why the course has a kitchen aroma gym — you go smell actual lemon, actual vanilla, a crushed peppercorn, a piece of green pepper, and say the name out loud. You're building the pathway from nose to word."},
+ {s:'T', t:"So I literally go sniff my spice rack."},
+ {s:'M', t:"You literally go sniff your spice rack. Best homework in the course. Now, step three: the palate. You take a decent sip, and you assess structure before flavour. Structure is the skeleton of the wine — sweetness, acidity, tannin, alcohol, body, and the length of the finish."},
+ {s:'T', t:"Define those for me like I'm five."},
+ {s:'M', t:"Happily. Sweetness — is there sugar? You feel it on the tip of your tongue in the first second. Acidity — does your mouth water? High acid makes you salivate; that's the test. Tannin — that's reds only, the drying, grippy feeling on your gums, like over-steeped tea. Alcohol — the warmth you feel in your throat and chest. Body — the overall weight and fullness, skim milk versus cream. And finish — how long the flavour lasts after you swallow."},
+ {s:'T', t:"Okay, the salivating one is genuinely useful. So if my mouth floods, that's high acid."},
+ {s:'M', t:"That's high acid, and high acid usually means a cooler climate. See how a physical sensation just told you something about where the wine is from? That's the whole game. Structure is evidence you can trust, because you're feeling it, not guessing it."},
+ {s:'T', t:"And step four, conclusions — that's where I finally get to guess."},
+ {s:'M', t:"That's where you get to reason. You look at everything you've gathered — pale colour, high acid, no oak, light body — and you say, this points to a cool-climate, unoaked white. You commit to a conclusion out loud, even if you're wrong. Especially if you're wrong."},
+ {s:'T', t:"Why especially if I'm wrong? That sounds painful."},
+ {s:'M', t:"Because a confident wrong answer teaches you exactly what to fix. If you call a wine high-alcohol and it turns out to be twelve percent, now you know your alcohol calibration is off, and you adjust. Vague answers teach you nothing. Wrong answers are data."},
+ {s:'T', t:"I actually like that. It takes the pressure off being right."},
+ {s:'M', t:"It should be fun, not an exam. Now, for this first module you're not even buying anything. You taste two wines you already own — a white and a red — purely to set your baselines. The Pinot Gris and the Monastrell. The point isn't to identify them; you know what they are. The point is to feel the full range: what does low tannin feel like, what does high tannin feel like, so you have anchors for everything that comes later."},
+ {s:'T', t:"Like calibrating a scale before you weigh things."},
+ {s:'M', t:"Precisely the metaphor. You weigh a known thing first. So this week: do the aroma gym, taste your two calibration wines slowly with the four steps, and fill in a tasting sheet for each. Don't rush. The skill you build here is the floor everything else stands on."},
+ {s:'T', t:"Four steps — appearance, nose, palate, conclusions. Observe first, guess last. Salivating means acid. Sniff the spice rack."},
+ {s:'M', t:"You were listening. That's Module One. Next time, we pour three Chardonnays side by side and watch terroir appear right in front of you. Go taste."}
+]},
+2: { title:"Chardonnay, Three Ways — How Terroir Becomes Visible", mins:12, script:[
+ {s:'M', t:"Welcome back. Last time we learned how to taste. Today we use it. This is the module where the whole idea of terroir stops being a word on a label and becomes something you can taste in the glass."},
+ {s:'T', t:"Terroir. I hear that word constantly and I nod like I understand it. I don't, really."},
+ {s:'M', t:"Then this is the perfect module for you, because we're going to prove it. Terroir is the idea that where a grape grows — the climate, the soil, the place — leaves a fingerprint on the wine. And the cleanest way to see it is to take one single grape and taste it from several different places."},
+ {s:'T', t:"And the grape we're using is Chardonnay."},
+ {s:'M', t:"Chardonnay, for a very good reason: it's a bit of a blank canvas. It doesn't have a loud, overwhelming aroma of its own, so it transmits its place and its winemaking almost transparently. Whatever the vineyard and the cellar do, Chardonnay shows it."},
+ {s:'T', t:"So it's the honest witness of grapes."},
+ {s:'M', t:"Beautifully put. Now, you're going to taste up to four Chardonnays, but let's start with the heart of it: a Chablis and a Mâcon. Both are from Burgundy, in France. Both are unoaked, or nearly so. Both are one hundred percent Chardonnay. So almost everything is held constant."},
+ {s:'T', t:"Almost everything except…?"},
+ {s:'M', t:"Except climate. Chablis is the far north of Burgundy — cold, marginal, the grapes struggle to ripen. Mâcon is the south of Burgundy — warmer, sunnier, the grapes ripen easily. That one difference, north versus south, is what you'll taste."},
+ {s:'T', t:"And let me guess — the cold one is the high-acid one, because of the salivating thing from last episode."},
+ {s:'M', t:"You're already thinking like a taster. Yes. Chablis: high acid, lean body, green-fruited — think green apple, lemon, sometimes a wet-stone or flinty edge. Mâcon: softer acid, rounder body, riper fruit — yellow apple, pear, a little more flesh. Same grape. The cold made one lean and green; the warmth made the other round and yellow."},
+ {s:'T', t:"Green to yellow. That's such a simple way to hold it."},
+ {s:'M', t:"And it's your ripeness ruler for every white wine you'll ever taste. Cooler equals greener and tarter; warmer equals yellower and rounder; hotter still equals tropical — pineapple, mango. Green, yellow, tropical. Once you internalize that line, you can place almost any white on a climate map."},
+ {s:'T', t:"Okay, that's three of the four. What are the other two Chardonnays?"},
+ {s:'M', t:"One is your local reference — a Niagara Chardonnay, from right here in Ontario. Cool climate, like a New World cousin of Chablis. It anchors all of this to wine you can actually buy down the road. And the fourth is the most important one for filling in the picture: a white Burgundy from the Côte d'Or that's been barrel-aged."},
+ {s:'T', t:"Why is the oaked one so important?"},
+ {s:'M', t:"Because the first three teach you climate, but none of them teach you winemaking. The Côte d'Or wine adds the other great variable: oak and lees. Barrel-aging gives you vanilla, toast, hazelnut, a little spice. And time on the lees — the spent yeast — gives a creamy, almost custardy texture. Suddenly you're not just tasting a place; you're tasting a choice the winemaker made."},
+ {s:'T', t:"So Chablis versus the Côte d'Or is — same grape, same region almost, but one's in steel and one's in barrel."},
+ {s:'M', t:"That's the key pair. Hold them side by side and the only big difference is the barrel. That comparison teaches you to recognize oak as its own thing, separate from the fruit, separate from the climate. It's one of the most useful skills in white wine."},
+ {s:'T', t:"I have to admit, I once thought 'buttery' was just what good Chardonnay tasted like."},
+ {s:'M', t:"A very common belief, and now you'll know better. That butter is a winemaking signature — it comes from oak and from a process called malolactic conversion, which softens the sharp acids into rounder, creamier ones. It's not the grape. It's the recipe."},
+ {s:'T', t:"Here's a real question. When I tried these, the warmer one tasted kind of flat to me. Did I do something wrong?"},
+ {s:'M', t:"Possibly, and it's the most common mistake — temperature. We serve white wine far too cold. Straight from the fridge, around four degrees, the aromatics are frozen shut and everything tastes muted and flat. Let these warm up to around ten to thirteen degrees — fifteen or twenty minutes on the counter — and re-taste. The richer, oaked one especially needs that warmth to open."},
+ {s:'T', t:"So 'flat' might just mean 'too cold.'"},
+ {s:'M', t:"Nine times out of ten. The other suspect is an old open bottle — if it's been open under a wine preserver for a week, it'll taste duller than a fresh one. So before you ever conclude a wine is boring, warm it up and check how fresh it is. Rule out the easy explanations first."},
+ {s:'T', t:"What's the actual homework here?"},
+ {s:'M', t:"Taste them in pairs across a few sittings. Chablis next to Mâcon for the climate lesson — that's your green-to-yellow axis. Then Chablis next to the Côte d'Or for the oak lesson — same grape, steel versus barrel. Write one sentence per wine that starts, 'This tastes like it comes from…' And then, the fun part, have someone pour two of them blind and see if you can tell which is which from structure alone."},
+ {s:'T', t:"And I should figure out which I actually prefer, right?"},
+ {s:'M', t:"That might be the most valuable thing of all. If you find you love the lean, mineral Chablis and you're cool on the rich, oaky one — that's not a wrong answer, that's your palate signature. Knowing it will guide every bottle you ever buy. Preference is data too."},
+ {s:'T', t:"Green to yellow is climate. Steel to barrel is winemaking. Serve it warmer than I think. And my preference counts."},
+ {s:'M', t:"That's the module. You just watched terroir become visible. Next time, we change grapes entirely and go hunting for one of the most recognizable smells in all of wine. Bring your nose."}
+]},
+3: { title:"Sauvignon Blanc — One Grape, Two Hemispheres", mins:12, script:[
+ {s:'M', t:"Welcome back. Today's grape is Sauvignon Blanc, and this module is built around one of the most satisfying tricks in all of wine tasting: telling the Old World from the New World, blind, with your eyes closed."},
+ {s:'T', t:"Sauvignon Blanc I actually think I know. It's that zingy, grassy white, right?"},
+ {s:'M', t:"That's the one — and it's famous for being aromatic, meaning it jumps out of the glass at you. Unlike Chardonnay, which whispers, Sauvignon Blanc shouts. Which makes it a wonderful grape for training your nose, because the clues are loud."},
+ {s:'T', t:"So what are we comparing this time?"},
+ {s:'M', t:"Two expressions of the same grape from opposite sides of the planet. From the Old World — France's Loire Valley, specifically Sancerre. And from the New World — New Zealand's Marlborough. Same grape, wildly different personalities, and the contrast teaches you to recognize each one instantly."},
+ {s:'T', t:"Give me the personalities."},
+ {s:'M', t:"Sancerre, from the cool Loire, is restrained and mineral. Think cut grass, green herbs, white flowers, citrus, and a chalky, stony quality underneath. It's elegant and a little reserved. Marlborough, from sunnier New Zealand, is the extrovert: explosive passionfruit, grapefruit, gooseberry, a tropical wave that practically leaps out of the glass."},
+ {s:'T', t:"So one's polite and one's shouting."},
+ {s:'M', t:"That's a great shorthand. And the reason comes down to two families of aroma compounds. The green, grassy, bell-pepper notes come from compounds called pyrazines. The tropical, passionfruit, sweaty-citrus notes come from compounds called thiols. Cool climates like the Loire emphasize the green pyrazines; sunny New Zealand cranks up the tropical thiols."},
+ {s:'T', t:"Pyrazines green, thiols tropical. Okay. Are those words I need to actually remember?"},
+ {s:'M', t:"They're worth knowing, because pyrazine is going to come back. That green bell-pepper smell shows up again in red wine — in Cabernet Sauvignon and Cabernet Franc when they're not fully ripe. So if you learn the smell now in Sauvignon Blanc, you'll catch it later in reds. It's the same fingerprint."},
+ {s:'T', t:"Wait, so the green pepper smell connects a white grape and a red grape?"},
+ {s:'M', t:"It connects several grapes, because Sauvignon Blanc is actually one of the parents of Cabernet Sauvignon. The family resemblance is literally genetic. This is what I love about teaching by markers — once you own a smell, it unlocks wines across the whole course."},
+ {s:'T', t:"All right, I'm sold on learning pyrazine. Now, there's a third wine in this module, isn't there?"},
+ {s:'M', t:"There is, and it's a sneaky one — a wine called Saint-Bris. Here's the trick: Saint-Bris is the only place in all of Burgundy that grows Sauvignon Blanc instead of Chardonnay. Everywhere else in Burgundy, white means Chardonnay. This one little appellation is the exception, and it has its own legal status because of it."},
+ {s:'T', t:"So it's a Burgundy that breaks the Burgundy rule."},
+ {s:'M', t:"Exactly, and it teaches you something important: in France, the label tells you the place, and the place dictates the grape — you have to know that Sancerre means Sauvignon, that Chablis means Chardonnay. Saint-Bris is the lovable exception that makes you learn the rule. And in the glass it's usually the quietest, stoniest of the three."},
+ {s:'T', t:"Let me try to predict the structure here. Sauvignon Blanc — is it high acid?"},
+ {s:'M', t:"Tell me what you think and why."},
+ {s:'T', t:"Well, you said Sancerre is cool-climate, and cool climate meant high acid back in the Chardonnay episode. So… high acid? And it's a crisp white, so probably no oak, light body?"},
+ {s:'M', t:"That's exactly right, and you reasoned it out instead of memorizing it. Sauvignon Blanc is almost always high-acid, unoaked, light-to-medium body, bone dry. The structure is consistent. What changes from place to place is the aroma — green versus tropical. So in this module, structure is the constant and the nose is the variable."},
+ {s:'T', t:"That's kind of the opposite of the Chardonnay module, where the structure changed."},
+ {s:'M', t:"A sharp observation. In Chardonnay you tracked changing structure and texture. In Sauvignon Blanc the structure mostly holds steady, so you train your nose to do the identifying. Different muscle, same goal."},
+ {s:'T', t:"Is there a fourth wine again, like the Chardonnay module had?"},
+ {s:'M', t:"There's an optional one, and it's lovely: a Pouilly-Fumé. It comes from right across the river from Sancerre — same grape, neighbouring villages — but it grows on flinty, silex soils that give it a distinctive smoky, gunflint character. Tasting it next to Sancerre is the Chablis-versus-Mâcon idea all over again: one grape, neighbouring spots, and the soil does the talking."},
+ {s:'T', t:"Quick — is that the same as Pouilly-Fuissé? I always mix those up."},
+ {s:'M', t:"Everyone does, and it's a classic trap, so let's nail it. Pouilly-Fumé, F-U-M-É, is Loire Sauvignon Blanc — smoky. Pouilly-Fuissé, F-U-I-S-S-É, is Mâcon Chardonnay — a completely different grape and place. One letter cluster, two different wines. Say it wrong in a shop and you'll get the wrong bottle."},
+ {s:'T', t:"Fumé is the smoky Sauvignon. Fuissé is the Chardonnay. Got it."},
+ {s:'M', t:"So here's your week. Taste the Sancerre and the New Zealand side by side and name the difference twice — once in intensity, how loud is it, and once in aroma family, green versus tropical. Then bring in the Saint-Bris and rank all three from quietest to loudest. And if you have the Pouilly-Fumé, hunt for that flinty smoke against the Sancerre."},
+ {s:'T', t:"And the big skill is telling Old World from New World."},
+ {s:'M', t:"That's the trophy. Restrained, green, mineral — think Old World, cooler. Loud, tropical, exuberant — think New World, sunnier. You'll find you can do it blind faster than you'd believe, and that single skill — Old World versus New World — carries through every grape we taste from here on."},
+ {s:'T', t:"Pyrazine green, thiol tropical. Structure stays, nose changes. Fumé not Fuissé. And learn the green smell now because it comes back in reds."},
+ {s:'M', t:"You've graduated Module Three. From here we move into the aromatic whites — Riesling, the petrol grape, and the perfumed ones — where your nose gets its real workout. Go pour something."}
+]}
+};
 
 /* ---------- storage (safe) ---------- */
 const store = {
@@ -984,6 +1221,7 @@ const SHEET = [
 const app = document.getElementById('app');
 const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
 function route(){
+  if(location.hash==='#/cellar'){ renderCellar(); return; }
   if(location.hash==='#/markers'){ renderMarkers(); return; }
   if(location.hash==='#/review'){ renderReview(); return; }
   const m = location.hash.match(/^#\/module\/(\d+)$/);
@@ -994,12 +1232,19 @@ window.addEventListener('hashchange', route);
 
 /* ---------- home ---------- */
 function renderHome(){
-  const doneCount = COURSE.modules.filter(m=>store.get(dKey(m.id))).length;
-  const pct = Math.round(doneCount/COURSE.modules.length*100);
+  const coreMods = COURSE.modules.filter(m=>m.no.toLowerCase().indexOf('appendix')===-1);
+  const doneCount = coreMods.filter(m=>store.get(dKey(m.id))).length;
+  const pct = Math.round(doneCount/coreMods.length*100);
+  let appendixHeaderShown = false;
   let cards = COURSE.modules.map(m=>{
+    let divider = '';
+    if(m.no.toLowerCase().indexOf('appendix')!==-1 && !appendixHeaderShown){
+      appendixHeaderShown = true;
+      divider = `<div class="appendix-divider"><span>Optional Appendices</span></div>`;
+    }
     const done = store.get(dKey(m.id));
     const quiz = store.get(qKey(m.id));
-    return `<div class="modcard" onclick="location.hash='#/module/${m.id}'">
+    return divider + `<div class="modcard${m.no.toLowerCase().indexOf('appendix')!==-1?' appendix':''}" onclick="location.hash='#/module/${m.id}'">
       <div class="no">${esc(m.no).toUpperCase()}</div>
       <h3>${esc(m.title)}</h3>
       <div class="desc">${esc(m.subtitle)}</div>
@@ -1015,12 +1260,13 @@ function renderHome(){
      <div class="crest"></div>
      <div class="eyebrow">A Private Wine Course</div>
      <h1>The Cellar Course</h1>
-     <div class="sub">Twelve modules · your bottles, your Coravin, your pace</div>
+     <div class="sub">Twelve modules + appendices · your bottles, your Coravin, your pace</div>
      <div class="progressbar"><i style="width:${pct}%"></i></div>
-     <div class="progress-label">${doneCount} of ${COURSE.modules.length} modules complete</div>
+     <div class="progress-label">${doneCount} of ${coreMods.length} modules complete</div>
    </header>
    <hr class="rule">
    <div class="navrow">
+     <button class="navcard" onclick="location.hash='#/cellar'"><div class="nt">Cellar & Wishlist</div><div class="nd">Track want / bought / tasted</div></button>
      <button class="navcard" onclick="location.hash='#/markers'"><div class="nt">Marker Library</div><div class="nd">Every fingerprint, one screen</div></button>
      <button class="navcard" onclick="location.hash='#/review'"><div class="nt">Review Gauntlet</div><div class="nd">10 random Qs from done modules</div></button>
    </div>
@@ -1031,8 +1277,15 @@ function renderHome(){
      <p><b>Tasting sheets</b> mirror your GBC systematic evaluation and save on this phone. Fill yours in <i>before</i> opening the answer key — committing first is how calibration happens.</p>
      <p><b>Shopping:</b> the companion shopping list maps every purchase to its module with LCBO numbers. Nothing needs buying more than a module ahead.</p>
      <p><b>Vintages emails:</b> each month, forward your Vintages email to Claude with the watch-list in mind (cru bourgeois Bordeaux, village Burgundy, Crozes-Hermitage, 375 mL Sauternes, grower Champagne) for a shortlist against the course.</p>
-     <p><b>Backup:</b> notes live in this phone's browser storage. Export them now and then — it builds your permanent tasting library too.</p>
-     <button class="btn ghost small" onclick="exportNotes()">Export my notes (CSV)</button>
+     <p><b>Listen:</b> Modules 1–3 now have an audio episode — a two-voice conversation you can play (or have your phone read aloud) while cooking or with Maggie. Find it on the "Listen" tab inside each module.</p>
+     <p><b>Protect your progress:</b> completed modules, quiz scores, tasting notes and your cellar list all live in this phone's browser storage. Back them up to a file you keep — then if storage ever clears or you switch phones, restore in one tap.</p>
+     <div class="backup-row">
+       <button class="btn primary small" onclick="backupAll()">⬇ Back up everything</button>
+       <button class="btn ghost small" onclick="document.getElementById('restoreFile').click()">⬆ Restore from file</button>
+       <input type="file" id="restoreFile" accept="application/json,.json" style="display:none" onchange="restoreAll(event)">
+     </div>
+     <div class="backup-msg" id="backupMsg"></div>
+     <button class="btn ghost small" style="margin-top:8px" onclick="exportNotes()">Export tasting notes (CSV)</button>
    </div>`;
   window.scrollTo(0,0);
 }
@@ -1041,7 +1294,7 @@ function renderHome(){
 let curTab = 'learn';
 function renderModule(m, tab){
   curTab = tab || 'learn';
-  const tabs = [['learn','Learn'],['taste','Taste'],['quiz','Quiz']];
+  const tabs = [['learn','Learn'],['listen','Listen'],['taste','Taste'],['quiz','Quiz']];
   app.innerHTML = `
    <button class="backlink" onclick="location.hash=''">&larr; All modules</button>
    <div class="modhead">
@@ -1053,6 +1306,7 @@ function renderModule(m, tab){
    <div id="pane"></div>`;
   const pane = document.getElementById('pane');
   if(curTab==='learn') pane.innerHTML = learnPane(m);
+  else if(curTab==='listen'){ pane.innerHTML = listenPane(m); }
   else if(curTab==='taste'){ pane.innerHTML = tastePane(m); hydrateSheets(m); }
   else { pane.innerHTML = quizPane(m); }
   window.scrollTo(0,0);
@@ -1064,6 +1318,81 @@ function learnPane(m){
    <div class="obj"><h4>Learning objectives</h4><ol>${m.objectives.map(o=>`<li>${esc(o)}</li>`).join('')}</ol></div>
    <div class="lesson">${m.lesson.map(L=>`<h3>${esc(L.h)}</h3>${L.p.map(p=>`<p>${esc(p)}</p>`).join('')}`).join('')}</div>
    <div class="obj" style="border-left-color:var(--vine)"><h4 style="color:var(--vine)">Reading this module</h4><ol>${m.reading.map(r=>`<li>${esc(r)}</li>`).join('')}</ol></div>`;
+}
+
+/* ---------- listen (audio episode) ---------- */
+function listenPane(m){
+  const ep = EPISODES[m.id];
+  if(!ep){
+    return `<div style="height:16px"></div>
+    <div class="ep-empty">
+      <div class="ep-eyebrow">Episode coming soon</div>
+      <p>The audio episode for this module hasn't been written yet. Modules 1–3 are ready first — more on the way.</p>
+    </div>`;
+  }
+  const lines = ep.script.map((l,i)=>`<div class="ep-line ${l.s==='M'?'mx':'th'}" data-i="${i}"><span class="ep-who">${l.s==='M'?'Margaux':'Theo'}</span><span class="ep-txt">${esc(l.t)}</span></div>`).join('');
+  return `<div style="height:16px"></div>
+   <div class="ep-head">
+     <div class="ep-eyebrow">Audio Episode · ~${ep.mins} min</div>
+     <h3 class="ep-title">${esc(ep.title)}</h3>
+     <p class="ep-sub">A two-voice conversation — Margaux (your teacher) and Theo (asking what you'd ask). Made for listening while your hands are busy. Tap play, or use your phone's own read-aloud on this page.</p>
+   </div>
+   <div class="ep-controls">
+     <button class="btn primary" id="epPlay" onclick="epToggle(${m.id})">▶ Play episode</button>
+     <button class="btn ghost small" id="epStop" onclick="epStop()">Stop</button>
+     <span class="ep-status" id="epStatus"></span>
+   </div>
+   <div class="ep-note" id="epNote"></div>
+   <div class="ep-script" id="epScript">${lines}</div>`;
+}
+
+let epQueue=[], epIdx=0, epPlaying=false, epModId=null;
+function epSupported(){ return 'speechSynthesis' in window; }
+function epPickVoices(){
+  const vs = window.speechSynthesis.getVoices();
+  const en = vs.filter(v=>/^en/i.test(v.lang));
+  const pool = en.length?en:vs;
+  // try to pick two distinct voices
+  const female = pool.find(v=>/female|samantha|victoria|karen|moira|tessa|fiona|serena|allison|ava|zoe/i.test(v.name));
+  const male = pool.find(v=>/male|daniel|alex|fred|tom|oliver|aaron|arthur|gordon/i.test(v.name) && v!==female);
+  return { M: female||pool[0]||null, T: male||pool[1]||pool[0]||null };
+}
+function epToggle(mid){
+  if(!epSupported()){ document.getElementById('epStatus').textContent = 'Your browser can\u2019t play built-in audio — use your phone\u2019s read-aloud (iPhone: Settings ▸ Accessibility ▸ Spoken Content ▸ Speak Screen, then two-finger swipe down).'; return; }
+  if(epPlaying){ window.speechSynthesis.pause(); epPlaying=false; document.getElementById('epPlay').textContent='▶ Resume'; document.getElementById('epStatus').textContent='Paused'; return; }
+  if(window.speechSynthesis.paused && epModId===mid){ window.speechSynthesis.resume(); epPlaying=true; document.getElementById('epPlay').textContent='⏸ Pause'; document.getElementById('epStatus').textContent='Playing…'; return; }
+  // fresh start
+  epStop();
+  epModId=mid; const ep=EPISODES[mid]; if(!ep) return;
+  const voices=epPickVoices();
+  epQueue = ep.script.map(l=>({l, voice: l.s==='M'?voices.M:voices.T }));
+  epIdx=0; epPlaying=true;
+  document.getElementById('epPlay').textContent='⏸ Pause';
+  document.getElementById('epStatus').textContent='Playing…';
+  epSpeakNext();
+}
+function epSpeakNext(){
+  if(epIdx>=epQueue.length){ epPlaying=false; document.getElementById('epPlay').textContent='▶ Play episode'; const st=document.getElementById('epStatus'); if(st) st.textContent='Finished ✓'; epClearHighlight(); return; }
+  const {l,voice}=epQueue[epIdx];
+  const u=new SpeechSynthesisUtterance(l.t);
+  if(voice) u.voice=voice;
+  u.rate = l.s==='M'?0.98:1.0; u.pitch = l.s==='M'?1.05:0.92;
+  u.onstart=()=>epHighlight(epIdx);
+  u.onend=()=>{ epIdx++; if(epPlaying) epSpeakNext(); };
+  window.speechSynthesis.speak(u);
+}
+function epHighlight(i){
+  epClearHighlight();
+  const el=document.querySelector(`.ep-line[data-i="${i}"]`);
+  if(el){ el.classList.add('on'); el.scrollIntoView({block:'center',behavior:'smooth'}); }
+}
+function epClearHighlight(){ document.querySelectorAll('.ep-line.on').forEach(e=>e.classList.remove('on')); }
+function epStop(){
+  if(epSupported()) window.speechSynthesis.cancel();
+  epPlaying=false; epIdx=0; epQueue=[];
+  const p=document.getElementById('epPlay'); if(p) p.textContent='▶ Play episode';
+  const s=document.getElementById('epStatus'); if(s) s.textContent='';
+  epClearHighlight();
 }
 
 function tastePane(m){
@@ -1218,6 +1547,155 @@ const MARKERS = [
   {m:"Wet stone · flint · chalk", p:"Often cool-climate, lees, or reductive winemaking", n:"Chablis, Sancerre, Saint-Bris, blanc de blancs. A register, not a literal soil transfer — but a reliable style flag."}
  ]}
 ];
+
+/* ---------- cellar & wishlist ---------- */
+const CELLAR_SEED = [
+ {id:'dogpoint', name:"Dog Point Sauvignon Blanc, Marlborough", mod:"M3", sku:"677450", price:"$29.95"},
+ {id:'pouillyfume', name:"Serge Dagueneau & Filles Pouilly-Fumé", mod:"M3", sku:"323634", price:"$38.95"},
+ {id:'nuiton', name:"Nuiton-Beaunoy Côte d'Or Bourgogne Chardonnay", mod:"M2", sku:"48973", price:"$29.95"},
+ {id:'kabinett', name:"Selbach-Oster Zeltinger Sonnenuhr Riesling Kabinett", mod:"M4", sku:"665927", price:"$40.00"},
+ {id:'trimbachgw', name:"Trimbach Gewürztraminer, Alsace", mod:"M4", sku:"958462", price:"$38.95"},
+ {id:'regnie', name:"Hospices de Beaujeu Régnié", mod:"M5", sku:"49860", price:"$23.95"},
+ {id:'benoitpinot', name:"Paul Benoit Bourgogne Pinot Noir", mod:"M5", sku:"49289", price:"$27.95"},
+ {id:'volpaia', name:"Castello di Volpaia Chianti Classico", mod:"M6", sku:"953828", price:"$37.95"},
+ {id:'zenato', name:"Zenato Valpolicella Ripasso Superiore", mod:"M6", sku:"confirm", price:"~$27"},
+ {id:'beronia', name:"Beronia Reserva Rioja", mod:"M7", sku:"50203", price:"$23.95"},
+ {id:'crasto', name:"Quinta do Crasto Douro", mod:"M7", sku:"confirm", price:"~$18.95"},
+ {id:'guigal', name:"E. Guigal Côtes du Rhône Rouge", mod:"M8", sku:"confirm", price:"~$22"},
+ {id:'footbolt', name:"d'Arenberg Footbolt Shiraz", mod:"M8", sku:"confirm", price:"$20–28"},
+ {id:'crubourg', name:"Cru Bourgeois Médoc / Haut-Médoc", mod:"M9", sku:"via Vintages", price:"$25–45"},
+ {id:'montes', name:"Montes Alpha Cabernet Sauvignon, Colchagua", mod:"M9", sku:"322586", price:"$22.95"},
+ {id:'rochemorin', name:"Ch. de Rochemorin Pessac-Léognan (M9 candidate)", mod:"M9", sku:"48823", price:"$39.95"},
+ {id:'juve', name:"Juvé & Camps Reserva de la Familia Brut Nature Cava", mod:"M10", sku:"39815", price:"$24.30"},
+ {id:'mandois', name:"Champagne Mandois Blanc de Noirs Brut (grower)", mod:"M10", sku:"48607", price:"$82.95"},
+ {id:'crastolbv', name:"Quinta do Crasto LBV Port, 375 mL", mod:"M11", sku:"515536", price:"confirm"},
+ {id:'inniskillin', name:"Inniskillin Vidal Icewine 200 mL (optional)", mod:"M11", sku:"confirm", price:"$25–30"},
+ {id:'savennieres', name:"Baumard Savennières Clos de Saint-Yves", mod:"App A", sku:"16717", price:"~$30–45"},
+ {id:'vouvray', name:"Vouvray Demi-Sec (Champalou/Huët)", mod:"App A", sku:"watch-list", price:"~$25–35"},
+ {id:'kenforrester', name:"Ken Forrester Old Vine Reserve Chenin Blanc", mod:"App A", sku:"231282", price:"~$19–25"},
+ {id:'argyros', name:"Argyros Santorini Assyrtiko", mod:"Extra", sku:"387365", price:"$53.95"},
+ {id:'atlantis', name:"Argyros Atlantis Dry White", mod:"Extra", sku:"371658", price:"$22.95"},
+ {id:'kirby', name:"Bachelder Kirby Pinot Blanc", mod:"Extra", sku:"51810", price:"$34.95"},
+ {id:'savagny', name:"Domaine de Savagny Jura Chardonnay", mod:"Extra", sku:"37178", price:"$26.95"},
+ {id:'henribourg', name:"Henri Bourgeois Les Baronnes Sancerre", mod:"Extra", sku:"542548", price:"$39.95"},
+ {id:'silexsancerre', name:"Silex Sancerre (Vacheron / Delaporte 'Silex')", mod:"Watch", sku:"watch-list", price:"~$39–50"},
+ {id:'sauternes', name:"Sauternes 375 mL (botrytis — M11 gap)", mod:"Watch", sku:"watch-list", price:"$25–40"}
+];
+const cellarKey = 'wc_cellar_v1';
+const STATUSES = ['want','bought','tasted'];
+const STATUS_LABEL = {want:'Wishlist', bought:'Bought', tasted:'Tasted'};
+function cellarData(){
+  let d = store.get(cellarKey); if(!d) d = {};
+  CELLAR_SEED.forEach(b=>{ if(!d[b.id]) d[b.id] = {status:'want'}; });
+  return d;
+}
+function cellarSave(d){ store.set(cellarKey, d); }
+function cellarSetStatus(id, status){
+  const d = cellarData(); if(!d[id]) d[id]={}; d[id].status = status; cellarSave(d);
+  renderCellar(currentCellarFilter);
+}
+function cellarAdd(){
+  const el = document.getElementById('newWineName');
+  const name = el ? el.value : '';
+  if(!name || !name.trim()) return;
+  const d = cellarData();
+  const id = 'u_'+Date.now();
+  d[id] = {status:'want', custom:{
+    name:name.trim(),
+    mod:(document.getElementById('newWineMod')||{}).value||'Extra',
+    sku:(document.getElementById('newWineSku')||{}).value||'',
+    price:(document.getElementById('newWinePrice')||{}).value||''
+  }};
+  cellarSave(d); renderCellar(currentCellarFilter);
+}
+function cellarRemove(id){ const d=cellarData(); delete d[id]; cellarSave(d); renderCellar(currentCellarFilter); }
+let currentCellarFilter = 'all';
+function renderCellar(filter){
+  currentCellarFilter = filter || 'all';
+  const d = cellarData();
+  const seedById = {}; CELLAR_SEED.forEach(b=>seedById[b.id]=b);
+  let items = Object.keys(d).map(id=>{
+    const meta = seedById[id] || (d[id].custom ? Object.assign({id:id}, d[id].custom) : {id:id, name:id, mod:'?', sku:'', price:''});
+    return Object.assign({id:id, status:d[id].status||'want'}, meta);
+  });
+  const counts = {all:items.length, want:0, bought:0, tasted:0};
+  items.forEach(it=>{ counts[it.status]=(counts[it.status]||0)+1; });
+  let shown = currentCellarFilter==='all' ? items : items.filter(it=>it.status===currentCellarFilter);
+  const modOrder = {M1:1,M2:2,M3:3,M4:4,M5:5,M6:6,M7:7,M8:8,M9:9,M10:10,M11:11,M12:12,'App A':13,Extra:14,Watch:15};
+  shown.sort((a,b)=>(modOrder[a.mod]||99)-(modOrder[b.mod]||99) || a.name.localeCompare(b.name));
+  const filterBtn = (key,label)=>`<button class="cfilter ${currentCellarFilter===key?'on':''}" onclick="renderCellar('${key}')">${label} <span class="cnum">${counts[key]||0}</span></button>`;
+  const rows = shown.map(it=>{
+    const chips = STATUSES.map(s=>`<button class="cstatus ${it.status===s?'on '+s:''}" onclick="cellarSetStatus('${it.id}','${s}')">${STATUS_LABEL[s]}</button>`).join('');
+    const isCustom = String(it.id).indexOf('u_')===0;
+    return `<div class="citem">
+      <div class="citem-head">
+        <div><span class="cmod">${esc(it.mod)}</span> <span class="cname">${esc(it.name)}</span></div>
+        ${isCustom?`<button class="cdel" onclick="cellarRemove('${it.id}')">×</button>`:''}
+      </div>
+      <div class="cmeta">${it.sku?('LCBO '+esc(it.sku)):''}${it.sku&&it.price?' · ':''}${esc(it.price||'')}</div>
+      <div class="cstatuses">${chips}</div>
+    </div>`;
+  }).join('');
+  app.innerHTML = `
+   <button class="backlink" onclick="location.hash=''">&larr; All modules</button>
+   <div class="modhead">
+     <div class="no">CELLAR & WISHLIST</div>
+     <h2>Your Bottle Tracker</h2>
+     <div class="sub">Tap a bottle's status to move it between Wishlist, Bought and Tasted. Pre-loaded with every course, appendix and watch-list bottle. Saved on this phone — back it up from the home screen.</div>
+   </div>
+   <div class="cfilters">${filterBtn('all','All')}${filterBtn('want','Wishlist')}${filterBtn('bought','Bought')}${filterBtn('tasted','Tasted')}</div>
+   <div class="cadd">
+     <div class="cadd-title">Add your own bottle</div>
+     <input id="newWineName" class="cinput" placeholder="Wine name">
+     <div class="cadd-row">
+       <input id="newWineMod" class="cinput sm" placeholder="Module (e.g. M5)">
+       <input id="newWineSku" class="cinput sm" placeholder="LCBO #">
+       <input id="newWinePrice" class="cinput sm" placeholder="Price">
+     </div>
+     <button class="btn primary small" onclick="cellarAdd()">+ Add to wishlist</button>
+   </div>
+   <div class="clist">${rows||'<div class="ep-empty">Nothing here yet.</div>'}</div>`;
+  window.scrollTo(0,0);
+}
+
+/* ---------- backup / restore ---------- */
+function collectAllData(){
+  const out = {};
+  try{
+    for(let i=0;i<localStorage.length;i++){
+      const k = localStorage.key(i);
+      if(k && (k.indexOf('wc_')===0 || k.indexOf('wt_')===0)) out[k] = localStorage.getItem(k);
+    }
+  }catch(e){}
+  return out;
+}
+function backupAll(){
+  const msg = document.getElementById('backupMsg');
+  try{
+    const payload = { app:'cellar-course', version:1, savedAt:new Date().toISOString(), data:collectAllData() };
+    const blob = new Blob([JSON.stringify(payload,null,2)], {type:'application/json'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'cellar-course-backup-' + new Date().toISOString().slice(0,10) + '.json';
+    document.body.appendChild(a); a.click(); a.remove();
+    if(msg) msg.textContent = 'Backup saved ✓ Keep this file safe (Notes, email, or Drive).';
+  }catch(e){ if(msg) msg.textContent = 'Backup failed — storage may be unavailable in this preview. Works on your live site.'; }
+}
+function restoreAll(ev){
+  const msg = document.getElementById('backupMsg');
+  const file = ev.target.files && ev.target.files[0]; if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e){
+    try{
+      const payload = JSON.parse(e.target.result);
+      const data = payload.data || payload;
+      let n=0; Object.keys(data).forEach(k=>{ try{ localStorage.setItem(k, data[k]); n++; }catch(err){} });
+      if(msg) msg.textContent = `Restored ${n} items ✓ Refreshing…`;
+      setTimeout(()=>{ location.hash=''; location.reload(); }, 900);
+    }catch(err){ if(msg) msg.textContent = 'Could not read that file — make sure it\u2019s a backup from this app.'; }
+  };
+  reader.readAsText(file);
+}
 
 function renderMarkers(){
   const groups = MARKERS.map(G=>`<div class="mgroup">${esc(G.g)}</div>` + G.items.map(it=>`
